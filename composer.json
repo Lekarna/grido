@@ -1,5 +1,5 @@
 {
-    "name": "o5/grido",
+    "name": "lekarna/grido",
     "type": "library",
     "description": "Grido - DataGrid for Nette Framework",
     "keywords": ["datagrid", "datalist", "tablegrid", "grid", "list", "table", "nette"],

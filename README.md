@@ -20,7 +20,7 @@ You can try it in [live demo](http://grido.bugyik.cz/example/)!
 Via Composer
 
 ``` bash
-$ composer require o5/grido
+$ composer require lekarna/grido
 ```
 
 ## Contributing
