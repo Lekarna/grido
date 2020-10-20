@@ -82,10 +82,7 @@ class Paginator extends \Nette\Utils\Paginator
 
     /**********************************************************************************************/
 
-    /**
-     * @return int
-     */
-    public function getPage()
+    public function getPage(): int
     {
         if ($this->page === NULL) {
             $this->page = parent::getPage();

@@ -18,6 +18,7 @@ use Grido\Components\Columns\Column;
 use Grido\Components\Filters\Filter;
 use Grido\Components\Actions\Action;
 
+use Nette\Application\UI\ITemplate;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 /**
@@ -687,7 +688,7 @@ class Grid extends Components\Container
      * @param array $params
      * @internal
      */
-    public function loadState(array $params)
+    public function loadState(array $params): void
     {
         //loads state from session
         $session = $this->getRememberSession();
@@ -706,10 +707,10 @@ class Grid extends Components\Container
      * @param \Nette\Application\UI\PresenterComponentReflection $reflection (internal, used by Presenter)
      * @internal
      */
-    public function saveState(array &$params, $reflection = NULL)
+    public function saveState(array &$params): void
     {
         !empty($this->onRegistered) && $this->onRegistered($this);
-        return parent::saveState($params, $reflection);
+        parent::saveState($params);
     }
 
     /**
@@ -821,7 +822,7 @@ class Grid extends Components\Container
      * @return \Nette\Templating\FileTemplate
      * @internal
      */
-    public function createTemplate()
+    public function createTemplate(): ITemplate
     {
         $template = parent::createTemplate();
         $template->setFile($this->getCustomization()->getTemplateFiles()[Customization::TEMPLATE_DEFAULT]);

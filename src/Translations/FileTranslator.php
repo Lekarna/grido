@@ -66,12 +66,10 @@ class FileTranslator implements \Nette\Localization\ITranslator
 
     /************************* interface \Nette\Localization\ITranslator **************************/
 
-    /**
-     * @param string $message
-     * @param int $count plural
-     * @return string
-     */
-    public function translate($message, $count = NULL)
+	/**
+	 * {@inheritdoc}
+	 */
+    public function translate($message, ...$parameters): string
     {
         return isset($this->translations[$message])
             ? $this->translations[$message]
