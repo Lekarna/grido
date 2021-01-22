@@ -72,6 +72,9 @@ abstract class Column extends \Grido\Components\Component
     /** @var array of arrays('pattern' => 'replacement') */
     protected $replacements = [];
 
+    /** @var string */
+    protected $headerWidth;
+
     /**
      * @param \Grido\Grid $grid
      * @param string $name
@@ -149,15 +152,15 @@ abstract class Column extends \Grido\Components\Component
     }
 
 
-	/**
-	 * @param string $width
-	 * @return static
-	 */
-	public function setHeaderWidth($width)
-	{
-		$this->getHeaderPrototype()->setAttribute('width', $width);
-		return $this;
-	}
+    /**
+     * @param string $width
+     * @return static
+     */
+    public function setHeaderWidth($width)
+    {
+        $this->headerWidth = $width;
+        return $this;
+    }
 
 
     /**
@@ -209,6 +212,10 @@ abstract class Column extends \Grido\Components\Component
             $this->headerPrototype->class[] = $this->getSort() == self::ORDER_DESC
                 ? 'desc'
                 : 'asc';
+        }
+
+        if ($this->headerWidth) {
+            $this->headerPrototype->setAttribute('width', $this->headerWidth);
         }
 
         return $this->headerPrototype;
