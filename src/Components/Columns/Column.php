@@ -215,7 +215,8 @@ abstract class Column extends \Grido\Components\Component
         }
 
         if ($this->headerWidth) {
-            $this->headerPrototype->setAttribute('width', $this->headerWidth);
+	        $this->headerPrototype->setAttribute('width', str_replace('px', '', $this->headerWidth));
+	        $this->headerPrototype->style('width', $this->headerWidth . ' !important');
         }
 
         return $this->headerPrototype;
