@@ -139,7 +139,7 @@ abstract class Column extends \Grido\Components\Component
     }
 
     /**
-     * @param mixed $callback |
+     * @param mixed $callback
      * @return static
      */
     public function setCustomRenderExport($callback)
@@ -147,6 +147,18 @@ abstract class Column extends \Grido\Components\Component
         $this->customRenderExport = $callback;
         return $this;
     }
+
+
+	/**
+	 * @param string $width
+	 * @return static
+	 */
+	public function setHeaderWidth($width)
+	{
+		$this->getHeaderPrototype()->setAttribute('width', $width);
+		return $this;
+	}
+
 
     /**
      * @param callback $callback
